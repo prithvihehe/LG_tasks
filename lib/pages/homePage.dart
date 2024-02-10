@@ -131,6 +131,8 @@ class _HomePageState extends State<HomePage> {
                       SSH ssh = SSH();
                       await ssh.connectToLG();
                       await ssh.cleanKML();
+
+                      await ssh.setRefresh();
                     },
                     label: "Clean KML",
                     backgroundColor: Color(0xff31B161),

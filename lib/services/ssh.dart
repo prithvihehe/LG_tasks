@@ -239,7 +239,7 @@ class SSH {
     }
   }
 
-  setRefresh(context) async {
+  setRefresh() async {
     try {
       for (var i = 2; i <= int.parse(_numberOfRigs); i++) {
         String search = '<href>##LG_PHPIFACE##kml\\/slave_$i.kml<\\/href>';
