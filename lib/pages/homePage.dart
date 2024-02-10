@@ -124,7 +124,17 @@ class _HomePageState extends State<HomePage> {
                     },
                     label: "Display",
                     backgroundColor: Color(0xffEF4F3F),
-                    textColor: Colors.black)
+                    textColor: Colors.black),
+                const SizedBox(height: 70),
+                RoundedSmallButton(
+                    onTap: () async {
+                      SSH ssh = SSH();
+                      await ssh.connectToLG();
+                      await ssh.cleanKML();
+                    },
+                    label: "Clean KML",
+                    backgroundColor: Color(0xff31B161),
+                    textColor: Colors.black),
               ],
             )
           ],
