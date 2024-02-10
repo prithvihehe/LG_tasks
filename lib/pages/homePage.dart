@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     label: "Stop Orbit",
                     backgroundColor: Color(0xff4C7CBF),
-                    textColor: Colors.black)
+                    textColor: Colors.black),
               ],
             ),
             Padding(
@@ -110,7 +110,24 @@ class _HomePageState extends State<HomePage> {
                     onTap: () async {
                       SSH ssh = SSH();
                       await ssh.connectToLG();
-                      await ssh.rebootLG();
+                      // ignore: use_build_context_synchronously
+                      showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) => AlertDialog(
+                                title: const Text('Do tou want to Reboot LG ?'),
+                                // content: const Text('AlertDialog description'),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(context, 'Cancel'),
+                                    child: const Text('Cancel'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () => ssh.rebootLG(),
+                                    child: const Text('OK'),
+                                  ),
+                                ],
+                              ));
                     },
                     label: "Reboot",
                     backgroundColor: Color(0xff4C7CBF),
