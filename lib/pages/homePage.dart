@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     label: "Relocate",
                     backgroundColor: Color(0xff31B161),
-                    textColor: Colors.white),
+                    textColor: Colors.black),
                 const SizedBox(height: 70),
                 RoundedSmallButton(
                     onTap: () async {
@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     label: "Reboot",
                     backgroundColor: Color(0xff4C7CBF),
-                    textColor: Colors.white),
+                    textColor: Colors.black),
                 const SizedBox(height: 70),
                 RoundedSmallButton(
                     onTap: () async {

@@ -239,6 +239,23 @@ class SSH {
     }
   }
 
+  setRefresh(context) async {
+    try {
+      for (var i = 2; i <= int.parse(_numberOfRigs); i++) {
+        String search = '<href>##LG_PHPIFACE##kml\\/slave_$i.kml<\\/href>';
+        String replace =
+            '<href>##LG_PHPIFACE##kml\\/slave_$i.kml<\\/href><refreshMode>onInterval<\\/refreshMode><refreshInterval>2<\\/refreshInterval>';
+
+        await _client!.execute(
+            'sshpass -p $_passwordOrKey ssh -t lg$i \'echo $_passwordOrKey | sudo -S sed -i "s/$replace/$search/" ~/earth/kml/slave/myplaces.kml\'');
+        await _client!.execute(
+            'sshpass -p $_passwordOrKey ssh -t lg$i \'echo $_passwordOrKey | sudo -S sed -i "s/$search/$replace/" ~/earth/kml/slave/myplaces.kml\'');
+      }
+    } catch (error) {
+      print("ERROR");
+    }
+  }
+
   stopOrbit() async {
     try {
       await _client!.run('echo "exittour=true" > /tmp/query.txt');
