@@ -1,26 +1,10 @@
-/// Class that defines the `look at` entity, which contains its properties and
-/// methods.
 class LookAtEntity {
-  /// Property that defines the look at `longitude`.
   double lng;
-
-  /// Property that defines the look at `latitude`.
   double lat;
-
-  /// Property that defines the look at `altitude`.
   double altitude;
-
-  /// Property that defines the look at `range`.
   double range;
-
-  /// Property that defines the look at `tilt`.
   double tilt;
-
-  /// Property that defines the look at `heading`.
   double heading;
-
-  /// Property that defines the look at `altitude mode`.
-  /// Defaults to `relativeToGround`.
   String altitudeMode;
 
   LookAtEntity(
@@ -32,8 +16,6 @@ class LookAtEntity {
       this.altitude = 0,
       this.altitudeMode = 'relativeToGround'});
 
-  /// Property that defines the look at `tag` according to its current
-  /// properties.
   String get tag => '''
       <LookAt>
         <longitude>$lng</longitude>
@@ -46,12 +28,9 @@ class LookAtEntity {
       </LookAt>
     ''';
 
-  /// Property that defines the look at `linear string` according to its current
-  /// properties.
   String get linearTag =>
       '<LookAt><longitude>$lng</longitude><latitude>$lat</latitude><altitude>$altitude</altitude><range>$range</range><tilt>$tilt</tilt><heading>$heading</heading><gx:altitudeMode>$altitudeMode</gx:altitudeMode></LookAt>';
 
-  /// Returns a [Map] from the current [LookAtEntity].
   toMap() {
     return {
       'lng': lng,
@@ -64,7 +43,6 @@ class LookAtEntity {
     };
   }
 
-  /// Returns a [LookAtEntity] from the given [map].
   factory LookAtEntity.fromMap(Map<String, dynamic> map) {
     return LookAtEntity(
         lng: map['lng'],

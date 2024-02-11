@@ -1,9 +1,6 @@
 import 'LookAt.dart';
 
-/// Class that defines the `orbit` entity, which contains its properties and
-/// methods.
 class OrbitEntity {
-  /// Generates the `orbit` tag based on the given [lookAt].
   static String tag(LookAtEntity lookAt) {
     String content = '';
 

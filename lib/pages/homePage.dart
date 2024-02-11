@@ -75,8 +75,7 @@ class _HomePageState extends State<HomePage> {
                     onTap: () async {
                       SSH ssh = SSH();
                       await ssh.connectToLG();
-                      await ssh.orbitAroundHome();
-                      // await ssh.startTour();
+                      await ssh.orbitAtMyCity();
                     },
                     label: "Start Orbit",
                     backgroundColor: Color(0xffFCBA25),
@@ -114,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                       showDialog<String>(
                           context: context,
                           builder: (BuildContext context) => AlertDialog(
-                                title: const Text('Do tou want to Reboot LG ?'),
+                                title: const Text('Do you want to Reboot LG ?'),
                                 // content: const Text('AlertDialog description'),
                                 actions: <Widget>[
                                   TextButton(
@@ -137,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                     onTap: () async {
                       SSH ssh = SSH();
                       await ssh.connectToLG();
-                      await ssh.rightScreenBalloon();
+                      await ssh.rightScreenDisplayName();
                     },
                     label: "Display",
                     backgroundColor: Color(0xffEF4F3F),
@@ -151,7 +150,7 @@ class _HomePageState extends State<HomePage> {
 
                       await ssh.setRefresh();
                     },
-                    label: "Clean KML",
+                    label: "Clean Logo",
                     backgroundColor: Color(0xff31B161),
                     textColor: Colors.black),
               ],

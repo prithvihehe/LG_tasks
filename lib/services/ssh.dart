@@ -122,7 +122,7 @@ class SSH {
       File inputFile = await makeFile("BalloonKML", balloonKML);
       await uploadKMLFile(inputFile, "BalloonKML", "Task_Balloon");
     } catch (e) {
-      print("MAACHUDAO");
+      print("error");
     }
   }
 
@@ -138,7 +138,7 @@ class SSH {
     }
   }
 
-  Future<void> orbitAroundHome() async {
+  Future<void> orbitAtMyCity() async {
     try {
       if (_client == null) {
         print('MESSAGE :: SSH CLIENT IS NOT INITIALISED');
@@ -153,7 +153,7 @@ class SSH {
       File inputFile = await makeFile("OrbitKML", orbitKML);
       await uploadKMLFile(inputFile, "OrbitKML", "Task_Orbit");
     } catch (e) {
-      print("Error hua hai, badhai");
+      print("Error");
     }
   }
 
@@ -177,7 +177,7 @@ class SSH {
         }
       });
     } catch (e) {
-      print("Error ki mkc");
+      print("Error");
     }
   }
 
@@ -192,7 +192,7 @@ class SSH {
         await showBalloon();
       }
     } catch (error) {
-      print("WTF bro");
+      print("error");
       await loadKML(kmlName, task);
     }
   }
@@ -211,17 +211,13 @@ class SSH {
 
       await _client!.run("echo '$balloonKML' > /var/www/html/kml/slave_2.kml");
 
-      //await cleanBalloon();
-
-      //await client!.run('echo "playtour=Task2" > /tmp/query.txt');
-
       await cleanKML();
     } catch (error) {
       await showBalloon();
     }
   }
 
-  Future<void> rightScreenBalloon() async {
+  Future<void> rightScreenDisplayName() async {
     try {
       if (_client == null) {
         print('MESSAGE :: SSH CLIENT IS NOT INITIALISED');
@@ -233,7 +229,6 @@ class SSH {
       final executeResult = await _client!.execute(
           "echo '${BalloonMakers.balloon()}' > /var/www/html/kml/slave_$rightMostScreen.kml");
       print(executeResult);
-      //fToast.showToast(child: getToastWidget(executeResult.toString(), Colors.grey, Icons.cable));
     } catch (e) {
       print('MESSAGE :: AN ERROR HAS OCCURRED WHILE EXECUTING THE COMMAND: $e');
     }
