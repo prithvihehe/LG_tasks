@@ -131,7 +131,7 @@ class SSH {
       var localPath = await getApplicationDocumentsDirectory();
       File localFile = File('${localPath.path}/${filename}.kml');
       await localFile.writeAsString(content);
-      // fToast.showToast(child: getToastWidget('${localFile.readAsStringSync()}', Colors.grey, Icons.cable));
+
       return localFile;
     } catch (e) {
       return null;
